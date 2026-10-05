@@ -8,6 +8,8 @@
 
 ---
 
+This is a **planned Rosetta client/integration layer**, distinct from the [TRIA SDK](https://github.com/TrivianTechnologies/tria-sdk), the deployable public TRIA kernel. No installable client implementation is provided here yet.
+
 ## Overview
 
 This repository will house the official **Python and JavaScript SDKs** for the Syzygy Rosetta governance API.
@@ -65,13 +67,13 @@ console.log(result.risk_score);  // number 0.0 – 1.0
 
 The SDK is planned for **Phase 4 — Scaling** of the Rosetta roadmap.
 
-Until the SDK is available, integrate directly with the `POST /evaluate` HTTP endpoint. See the [API Documentation](https://github.com/Trivian-Technologies/syzygy-rosetta-docs) for the full request and response reference.
+The planned client targets a `POST /evaluate` interface; current implementation behavior and API documentation remain pending verification. The current API implementation documentation destination is pending verification. The separate [Syzygy Rosetta Protocol](https://github.com/TrivianTechnologies/syzygy-rosetta-protocol) repository is the canonical public protocol/specification, not a substitute for implementation-specific API documentation.
 
 ---
 
-## Direct API Integration (Now)
+## Planned API integration example
 
-While the SDK is in development, you can call Rosetta directly:
+The following illustrates the intended HTTP interface. It is not evidence of an available or verified current deployment:
 
 ```bash
 curl -X POST http://localhost:8000/evaluate \
@@ -99,14 +101,20 @@ Follow [@TrivianOS](https://x.com/TrivianOS) for product updates.
 
 | Repository | Role |
 |---|---|
-| [syzygy-rosetta-originbase](https://github.com/Trivian-Technologies/syzygy-rosetta-originbase) | Core governance engine |
-| [syzygy-rosetta-docs](https://github.com/Trivian-Technologies/syzygy-rosetta-docs) | Full documentation |
-| [syzygy-rosetta-sandbox](https://github.com/Trivian-Technologies/syzygy-rosetta-sandbox) | Testing and simulation |
+| [syzygy-rosetta-originbase](https://github.com/TrivianTechnologies/syzygy-rosetta-originbase) | Historical origin codebase; not the current implementation |
+| API implementation documentation | Current destination pending verification |
+| [syzygy-rosetta-sandbox](https://github.com/TrivianTechnologies/syzygy-rosetta-sandbox) | Testing and simulation |
 
 ---
 
 ## Organization
 
-Part of the [Trivian Technologies](https://github.com/Trivian-Technologies) organization.
+Part of the [Trivian Technologies](https://github.com/TrivianTechnologies) organization.
 
 **Website:** [triviantech.com](https://triviantech.com) | **X:** [@TrivianOS](https://x.com/TrivianOS) | **LinkedIn:** [Trivian Technologies](https://www.linkedin.com/company/awakening-the-architect)
+
+## Research lineage and current home
+
+Originator: Sarasha Elion. This work draws on architecture originated and cultivated through Trivian Institute. Trivian Technologies is the current engineering and commercial-development home. Repository stewardship does not establish ownership of all underlying IP; the intended founder IP assignment is pending, and contributor and third-party rights remain applicable.
+
+For technical and ecosystem inquiries: node@triviantech.com. No repository-level license file is currently specified; this description does not grant additional rights.
