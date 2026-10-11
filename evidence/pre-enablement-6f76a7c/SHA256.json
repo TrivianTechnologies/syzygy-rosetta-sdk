@@ -1,0 +1,5 @@
+{
+  "src/open_rosetta/conformance.py": "78d5ae8e5997372f400c82290336c6b9caa09abc26db236a5300306160a05ec7",
+  "tests/test_correction_gate.py": "b73a08209cdc8c0e00b69894a216796cef6234616cf89121771762845d73ac2a",
+  "tests/test_correction_integration.py": "74fd83cae4eaac495d6b324ae47835bc6df197b547128b79534a1873cd37f526"
+}

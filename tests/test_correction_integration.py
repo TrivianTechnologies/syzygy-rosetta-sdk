@@ -7,12 +7,6 @@ from open_rosetta.tria_adapter import TriaBinding,ReleasePolicy
 from open_rosetta.correction import apply_correction
 
 
-@pytest.fixture(autouse=True)
-def offline_conformance_only(monkeypatch):
-    # Exercise candidate behavior without enabling the shipped release gate.
-    monkeypatch.setattr('open_rosetta.conformance._CORRECTION_EXECUTION_ENABLED', True)
-
-
 def fixture():
     rel=tria.Tria().create_relationship(['human:a','agent:b'])
     source=rel.register_claim('agent:b',tria.EpistemicType.OBSERVATION,'source',source_refs=['host:source']).claim_id

@@ -1,7 +1,10 @@
 # SPDX-License-Identifier: MPL-2.0
-"""Release gate; only offline conformance fixtures override this private state."""
+"""Bounded local correction candidate; see docs/CORRECTION_ENABLEMENT.md.
 
-_CORRECTION_EXECUTION_ENABLED = False
+This transition is under review and does not add distributed guarantees.
+"""
+
+_CORRECTION_EXECUTION_ENABLED = True
 
 
 class CorrectionExecutionUnavailable(RuntimeError):
