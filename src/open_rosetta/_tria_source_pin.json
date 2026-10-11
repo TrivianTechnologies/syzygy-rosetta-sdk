@@ -1,9 +1,9 @@
 {
   "repository": "TrivianTechnologies/tria-sdk",
-  "commit": "69a0b3739457e86f9e481cdfe4fa41e9810461cc",
+  "commit": "03b8ef764a60c5ba01031ddaf363028e5c49f7d9",
   "base_commit": "19919d8c2562cc00381b30ac3a303a83ce6787fa",
   "candidate_tree": "8e6fa83ecda4f3bac3489229498ad6b05a935441",
-  "source_status": "public_draft_candidate_pending_required_review",
+  "source_status": "merged_source_verified_tree_identical",
   "version": "0.1.0a7",
   "correction_safety_version": "0.1",
   "python_sources": {

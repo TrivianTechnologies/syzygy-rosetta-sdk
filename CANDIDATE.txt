@@ -1,8 +1,8 @@
 Open Rosetta local candidate — assessment and bounded declared-claim governance
 
 Software/tests: MPL-2.0; applicable original prose: CC BY-SA 4.0. See LICENSE.md.
-No package is published. The source fingerprint and exact commit identify public draft TRIA candidate
-69a0b3739457e86f9e481cdfe4fa41e9810461cc (PR #61). Package version
+No package is published. The source fingerprint and exact commit identify merged TRIA source
+03b8ef764a60c5ba01031ddaf363028e5c49f7d9 (PR #61). Package version
 alone is insufficient; older/different a7 source fails closed at binding/release.
 
 Assessment never authorizes. Observations bind subject, scope, all policy principals
@@ -35,8 +35,8 @@ Prior local G01–G03 regressions and paired U01–U11 controls passed.
 Correction application and claim-dependent release are disabled by default until
 conformance and required review gates pass. Offline tests and the fixed mock-only
 Sandbox temporarily override the private gate to evaluate candidate behavior;
-that evidence does not mean the release gate is enabled. Independent review,
-remote CI and final cross-repository review remain outstanding. This is a local
+that evidence does not mean the release gate is enabled. Independent source review and merge CI passed for the original merged tuple.
+Developer-experience changes require their own candidate review. This is a local
 review candidate, not general production/correction compatibility certification.
 F033 remains UNRESOLVED: no independent-store/global freshness or no-resurrection.
 Reproducibility is logged agent execution, not an independent reviewer rerun.
