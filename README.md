@@ -1,49 +1,49 @@
-# Open Rosetta SDK — local interoperability candidate
+# Open Rosetta SDK
 
-Open Rosetta provides non-authorizing assessment and a bounded public TRIA
-integration. It provides no credentials, HTTP service or proprietary implementation.
+**Assess an action. Check current authority. Observe the local result.**
 
-Install the exact committed TRIA dependency and this source in an isolated environment:
+Open Rosetta provides non-authorizing assessment and a bounded TRIA integration
+for Python applications. Start with a local action, revoke consent, and see the
+next attempt blocked before the mock executor runs.
 
-```bash
-python -m pip install -e ".[governed]" pytest
-python -m pytest -q tests
-```
+[**Run the quickstart**](docs/GETTING_STARTED.md) ·
+[Compatibility](docs/COMPATIBILITY.md) · [Security boundaries](docs/SECURITY.md)
 
-The exact source fingerprint in `src/open_rosetta/_tria_source_pin.json` must match;
-package version alone is insufficient. The pin is TRIA commit
-`69a0b3739457e86f9e481cdfe4fa41e9810461cc` ([draft PR #61](https://github.com/TrivianTechnologies/tria-sdk/pull/61)); required review and CI remain pending.
+## Developer path
 
-Correction application and claim-dependent release are disabled by default pending
-G01–G03 conformance and required review. Tests override the private gate only in
-scoped offline fixtures; there is no supported runtime opt-in. Assessment and
-claim-independent local governance remain available.
+1. Understand the implemented [Syzygy Rosetta Protocol](https://github.com/TrivianTechnologies/syzygy-rosetta-protocol).
+2. Install the exact merged sources using [Getting started](docs/GETTING_STARTED.md).
+3. Run [examples/quickstart.py](examples/quickstart.py): assessment, local authority and revocation.
+4. Reproduce the [offline Sandbox candidate](https://github.com/TrivianTechnologies/syzygy-rosetta-sandbox) using its review artifact and reproducibility guide. Its new runner is not yet on the default branch.
+5. Request implementation assistance at [node@triviantech.com](mailto:node@triviantech.com).
 
-`assessment.assess` retains required-check diagnostics, implements false-over-unknown
-precedence and never grants permission. Observations bind subject, scope, principals,
-action/input identity, evidence version and local state.
+The SDK is an unpublished source-installed prerelease, not a PyPI release. The
+quickstart names immutable merged revisions and works without service credentials.
 
-`tria_adapter.TriaBinding` fixes one relationship and policy. Explicit `claim_refs`
-enable canonical claim-context checking; empty refs retain the host precondition of
-claim-independent behavior. Fresh ACT/consent/READ, final handoff, inclusive deadline
-and explicit effect uncertainty remain mandatory. Hosts declare dependencies and
-authenticate evidence; arbitrary executor semantics are not automatically inferred.
+## Profiles and observable behavior
 
-`correction.apply_correction` delegates graph-validated atomic correction to the
-pinned kernel. A receipt does not prove uptake. The local Sandbox supplies paired
-U01–U11 next-consumption/consequence controls. See [CANDIDATE.txt](CANDIDATE.txt).
-Historical failure witnesses under `evidence/` belong to their original kernel;
-they are separate from current conformance. F033 remains UNRESOLVED and excluded.
+Assessment retains required-check diagnostics and gives definite false evidence
+precedence over unknowns. It never grants permission. Local governed execution
+binds action, input, subject, principals, scope and state, then asks one exact
+TRIA backend for fresh authorization at the synchronous handoff. No cached ALLOW
+or alternate-backend fallback is used.
+
+Claim-independent local execution is available. Correction application and
+claim-dependent release remain disabled pending their release gates. Fixed offline
+fixtures exercise the correction candidate; they are not a runtime opt-in.
+
+Host evidence is attributable input, not independently verified truth. A host
+completion report is distinct from an observed external effect. F033 remains
+unresolved; global freshness, independent-store convergence and distributed
+no-resurrection are excluded. See the technical guides for full boundaries.
 
 ## Provenance and license
 
 Originator: Sarasha Elion. Research lineage: Trivian Institute. Engineering home:
-Trivian Technologies. Preserve contributor notices and historical grants.
-Rights-to-license authority does not imply copyright assignment. Software/tests:
-MPL-2.0; applicable original documentation: CC BY-SA 4.0. See [LICENSE.md](LICENSE.md)
-and [NOTICE.md](NOTICE.md).
+Trivian Technologies. Software/tests: MPL-2.0; applicable original documentation:
+CC BY-SA 4.0. Preserve contributor notices and historical grants. See
+[LICENSE.md](LICENSE.md) and [NOTICE.md](NOTICE.md).
 
-The earlier planned HTTP description remains in `syzygy-rosetta-sdk.md` as historical
-planning, not an adopted API. The public Protocol repository remains canonical for
-architecture and normative commitments:
-https://github.com/TrivianTechnologies/syzygy-rosetta-protocol
+The earlier planned HTTP description in `syzygy-rosetta-sdk.md` is historical
+planning, not an adopted SDK API. The Protocol remains canonical for architecture
+and normative commitments.
