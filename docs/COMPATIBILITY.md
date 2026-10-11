@@ -21,10 +21,11 @@ with another `0.1.0a7` build from its package version alone.
 
 Python 3.11–3.13 are exercised. Assessment, local handoff, correction simulation,
 and packaging are separate evidence scopes. A passing simulation does not certify
-production behavior or a distributed system. Correction application and
-claim-dependent release remain disabled by default; no gate transition is made in
-this documentation milestone. A future transition requires exact-source integrated
-G01–G03 conformance and independent review recorded against the enabling commit.
+production behavior or a distributed system. The merged sources above retain the disabled correction gate. This branch prepares
+a separate enabling candidate described in [the transition record](CORRECTION_ENABLEMENT.md);
+its normal public API and installed artifacts require exact-head review/CI before
+supported availability. The original onboarding installation remains pinned to
+the merged, disabled SDK.
 
 TRIA event schema `0.3`, projection `0.6`, replay bundle `0.1`, operational spec
 `0.1.3`, and correction-safety surface `0.1` remain unchanged. No revision or

@@ -28,9 +28,11 @@ binds action, input, subject, principals, scope and state, then asks one exact
 TRIA backend for fresh authorization at the synchronous handoff. No cached ALLOW
 or alternate-backend fallback is used.
 
-Claim-independent local execution is available. Correction application and
-claim-dependent release remain disabled pending their release gates. Fixed offline
-fixtures exercise the correction candidate; they are not a runtime opt-in.
+Claim-independent local execution is available. This branch prepares an explicit
+[correction-enablement candidate](docs/CORRECTION_ENABLEMENT.md) under review.
+The merged SDK remains disabled for correction application and claim-dependent
+release until the enabling commit satisfies its review/CI gates. Candidate tests
+exercise the normal public API without an enabling override.
 
 Host evidence is attributable input, not independently verified truth. A host
 completion report is distinct from an observed external effect. F033 remains

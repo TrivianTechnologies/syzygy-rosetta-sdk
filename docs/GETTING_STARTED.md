@@ -80,3 +80,7 @@ For integration design, technical questions or implementation assistance, contac
 Python version, expected behavior and a synthetic reproducer. Do not send credentials,
 customer records or private data. For investment inquiries use
 [invest@triviantech.com](mailto:invest@triviantech.com).
+
+For the separate, not-yet-supported correction-enablement candidate, see
+[the explicit transition record](CORRECTION_ENABLEMENT.md). The commands above
+continue to install the merged SDK with correction-dependent execution disabled.

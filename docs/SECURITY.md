@@ -15,8 +15,10 @@ custom stores and direct database writes remain trusted infrastructure. Do not
 expose relationship administration or the local adapter as a public endpoint.
 The offline demo requires no server, secrets, customer data or privileged endpoint.
 
-Correction-dependent execution remains gated. Offline test overrides are fixtures,
-not an integration API. Preserve failure traces, reconcile unknown effects, and
+This enabling candidate exercises correction-dependent execution through the normal
+public API without enabling overrides; supported availability still requires its
+exact-head review, CI and merge gates. Overrides in preserved historical fixtures
+are not an integration API. Preserve failure traces, reconcile unknown effects, and
 use fresh authority for any retry. F033 remains unresolved; distributed freshness,
 independent-store convergence and global no-resurrection are excluded.
 
