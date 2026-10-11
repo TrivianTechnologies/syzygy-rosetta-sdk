@@ -15,9 +15,9 @@ custom stores and direct database writes remain trusted infrastructure. Do not
 expose relationship administration or the local adapter as a public endpoint.
 The offline demo requires no server, secrets, customer data or privileged endpoint.
 
-This enabling candidate exercises correction-dependent execution through the normal
-public API without enabling overrides; supported availability still requires its
-exact-head review, CI and merge gates. Overrides in preserved historical fixtures
+Merged SDK `9d784d8cee1aa6efdf5bb0ffe6360b44b4c4f114` exercises bounded local
+correction-dependent execution through the normal public API without enabling
+overrides, after exact-head review, CI and merge gates passed. Overrides in preserved historical fixtures
 are not an integration API. Preserve failure traces, reconcile unknown effects, and
 use fresh authority for any retry. F033 remains unresolved; distributed freshness,
 independent-store convergence and global no-resurrection are excluded.

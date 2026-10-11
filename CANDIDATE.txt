@@ -1,5 +1,5 @@
-Correction-enablement review candidate: this branch sets the local gate true.
-The merged SDK remains disabled until the enabling commit is reviewed and merged.
+Bounded local correction enablement merged in SDK
+9d784d8cee1aa6efdf5bb0ffe6360b44b4c4f114 after independent review and CI.
 See docs/CORRECTION_ENABLEMENT.md for the explicit transition and evidence.
 
 Open Rosetta local candidate — assessment and bounded declared-claim governance
@@ -36,10 +36,10 @@ after an effect does not cancel it. These are bounded local guarantees, not proo
 for every concurrent schedule or hostile in-process code.
 
 Prior local G01–G03 regressions and paired U01–U11 controls passed.
-Current enabling-candidate tests use the normal public API without patching the
+Current correction tests use the normal public API without patching the
 gate on. Historical disabled/override evidence is preserved separately. The
-closed-gate safety regression remains an explicit negative control. Independent source review and merge CI passed for the original merged tuple.
-Developer-experience changes require their own candidate review. This is a local
-review candidate, not general production/correction compatibility certification.
+closed-gate safety regression remains an explicit negative control. Independent source review and merge CI passed for the merged enabling tuple.
+This remains an unpublished local prerelease, not general production/correction
+compatibility certification.
 F033 remains UNRESOLVED: no independent-store/global freshness or no-resurrection.
 Reproducibility is logged agent execution, not an independent reviewer rerun.
