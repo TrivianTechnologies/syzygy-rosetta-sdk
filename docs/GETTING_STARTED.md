@@ -14,7 +14,7 @@ these commands do not assume a published PyPI distribution. From this checkout:
 python3 -m venv .venv
 .venv/bin/python -m pip install \
   'tria-sdk @ git+https://github.com/TrivianTechnologies/tria-sdk.git@03b8ef764a60c5ba01031ddaf363028e5c49f7d9' \
-  'open-rosetta-sdk @ git+https://github.com/TrivianTechnologies/syzygy-rosetta-sdk.git@6f76a7c605014b2ce13c76e6884f22bbf53094df'
+  'open-rosetta-sdk @ git+https://github.com/TrivianTechnologies/syzygy-rosetta-sdk.git@9d784d8cee1aa6efdf5bb0ffe6360b44b4c4f114'
 .venv/bin/python -m pip check
 .venv/bin/python examples/quickstart.py
 ```
@@ -41,7 +41,7 @@ integration. The SDK checks represented relationships, not the truth of the worl
 |---|---|---|
 | Assessment | Evaluates required checks, preserving failure and uncertainty | Profile/schema and bound observations; no TRIA installation required for assessment imports |
 | Claim-independent local governance | Rechecks current authority and consent at synchronous local handoff | Exact TRIA source, declared scope, current evidence and a local executor |
-| Correction-dependent governance | Candidate graph validation, status propagation and atomic correction | Currently disabled by the release gate; offline conformance exercises it in a fixed simulation |
+| Correction-dependent governance | Canonical graph validation, status propagation and local atomic correction | Enabled in the exact merged SDK below its bounded local guarantees; declare all consequential claim dependencies |
 
 `SURVIVES` is an assessment outcome, not authorization. Missing/ambiguous evidence
 remains unresolved. A definite false required check takes precedence over unknowns.
@@ -64,8 +64,9 @@ claims about live external effects.
 the pin. Recreate the environment using the two immutable sources above; do not
 remove the fingerprint check. See [compatibility](COMPATIBILITY.md).
 
-`CorrectionExecutionUnavailable` is the intentional release gate, not a missing
-credential. There is no supported runtime switch. `ASSESSMENT_DENIED`, `TRIA_DENIED`,
+`CorrectionExecutionUnavailable` indicates a closed release gate in older or
+intentionally disabled builds. The exact merged revision above enables the bounded
+local correction path. There is no supported runtime switch. `ASSESSMENT_DENIED`, `TRIA_DENIED`,
 `DEADLINE_DENIED` and `BINDING_CHANGED` identify different failure boundaries.
 Do not automatically retry a missing receipt or unknown effect.
 
@@ -81,6 +82,6 @@ Python version, expected behavior and a synthetic reproducer. Do not send creden
 customer records or private data. For investment inquiries use
 [invest@triviantech.com](mailto:invest@triviantech.com).
 
-For the separate, not-yet-supported correction-enablement candidate, see
-[the explicit transition record](CORRECTION_ENABLEMENT.md). The commands above
-continue to install the merged SDK with correction-dependent execution disabled.
+The [explicit transition record](CORRECTION_ENABLEMENT.md) records the reviewed
+and merged local correction-enablement change. These commands install that exact
+merge; they do not publish a package or imply distributed guarantees.

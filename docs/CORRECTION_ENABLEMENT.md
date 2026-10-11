@@ -1,9 +1,11 @@
-# Bounded local correction enablement candidate
+# Bounded local correction enablement record
 
-Status: **candidate under independent review, not yet supported availability**.
-This branch changes the SDK correction gate from false to true. The merged SDK
-`6f76a7c605014b2ce13c76e6884f22bbf53094df` remains disabled; use this branch only
-for review and local conformance until its exact enabling commit passes review/CI.
+Status: **reviewed and merged for bounded local use; no package publication**.
+SDK PR4 merged as `9d784d8cee1aa6efdf5bb0ffe6360b44b4c4f114`, with the exact tree
+of independently reviewed head `5e205c1eb1611a1c997526007df57e3724712652`.
+[Post-merge CI38118908992](https://github.com/TrivianTechnologies/syzygy-rosetta-sdk/actions/runs/38118908992)
+passed on Python 3.11–3.13, including clean wheel/sdist installations. The earlier
+SDK `6f76a7c605014b2ce13c76e6884f22bbf53094df` remains a disabled historical baseline.
 
 ## Transition and scope
 
@@ -49,8 +51,11 @@ merged kernel, then runs tests from outside the repository. Positive paths must
 pass without modifying `conformance.py` or a private flag at runtime. A deliberately
 closed-gate test remains a negative control, not an enabling workaround.
 
-Required before any supported-availability claim: exact enabling-head independent
-review; passing integrated positive/negative controls and installed-artifact tests;
-applicable GitHub reviews/CI; and recorded merge disposition. No merge or publication
-is implied by preparing this candidate. Sandbox remote publication remains separately
-blocked on deployment-trigger inspection.
+The exact enabling-head independent review, integrated positive/negative controls,
+installed-artifact tests and applicable GitHub requirements passed before the
+recorded merge. The repository had no additional required GitHub approval;
+automated review was recorded honestly rather than impersonating a human approval.
+Post-merge clean installation against the exact SDK/TRIA commits passed 180
+SDK/Sandbox tests. This establishes bounded local use, not production deployment,
+package publication or distributed guarantees. Sandbox remote writes remain
+separately blocked on deployment-trigger inspection.
