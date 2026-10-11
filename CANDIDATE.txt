@@ -1,0 +1,42 @@
+Open Rosetta local candidate — assessment and bounded declared-claim governance
+
+Software/tests: MPL-2.0; applicable original prose: CC BY-SA 4.0. See LICENSE.md.
+No package is published. The source fingerprint and exact commit identify public draft TRIA candidate
+69a0b3739457e86f9e481cdfe4fa41e9810461cc (PR #61). Package version
+alone is insufficient; older/different a7 source fails closed at binding/release.
+
+Assessment never authorizes. Observations bind subject, scope, all policy principals
+(including consent_actor), action/input identity, evidence version and local state.
+This is consistency/freshness checking, not authenticated identity or truth.
+
+TriaBinding fixes one relationship and policy. Empty claim_refs requires the host
+to ensure claim-independent use. Nonempty claim_refs declares consequential
+canonical dependencies: all ancestors must exist, be ACTIVE and receive READ
+through Runtime. Translation preserves status/version/contestation provenance.
+TRIA rechecks current ACT/consent and prepared claim context at handoff; Rosetta
+also checks action/input/state binding and the inclusive deadline. Hosts must
+declare ALL semantic dependencies; arbitrary text/code semantics are not inferred.
+
+apply_correction requires a canonical graph snapshot/expected head, current bound
+ACT principal, host epistemic disposition and host acceptance reference. Acceptance
+and application share that ACT principal. The reference attributes host evidence;
+it does not authenticate truth. A receipt alone is not substantive uptake: observe
+next consumption and consequences. Fresh contested content remains inspectable;
+consequential use of non-ACTIVE required claims is withheld. No new canonical
+revision/supersession events or replacement-content authority are introduced.
+
+No cached ALLOW, alternate backend fallback, blind retry or remote transport exists.
+Unknown effects stay unknown. Wrapper entry can yield a TRIA UNKNOWN_EFFECT receipt
+while Rosetta records zero host entry after binding/deadline denial. Correction
+after an effect does not cancel it. These are bounded local guarantees, not proof
+for every concurrent schedule or hostile in-process code.
+
+Prior local G01–G03 regressions and paired U01–U11 controls passed.
+Correction application and claim-dependent release are disabled by default until
+conformance and required review gates pass. Offline tests and the fixed mock-only
+Sandbox temporarily override the private gate to evaluate candidate behavior;
+that evidence does not mean the release gate is enabled. Independent review,
+remote CI and final cross-repository review remain outstanding. This is a local
+review candidate, not general production/correction compatibility certification.
+F033 remains UNRESOLVED: no independent-store/global freshness or no-resurrection.
+Reproducibility is logged agent execution, not an independent reviewer rerun.
