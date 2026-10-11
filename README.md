@@ -1,120 +1,49 @@
-# Syzygy Rosetta — SDK
+# Open Rosetta SDK — local interoperability candidate
 
-> **Official SDK for the Syzygy Rosetta Governance API**
+Open Rosetta provides non-authorizing assessment and a bounded public TRIA
+integration. It provides no credentials, HTTP service or proprietary implementation.
 
-[![Status: Planned — Phase 4](https://img.shields.io/badge/Status-Planned%20Phase%204-lightgrey.svg)]()
-[![Python](https://img.shields.io/badge/Python-Coming%20Soon-blue.svg)]()
-[![JavaScript](https://img.shields.io/badge/JavaScript-Coming%20Soon-yellow.svg)]()
-
----
-
-This is a **planned Rosetta client/integration layer**, distinct from the [TRIA SDK](https://github.com/TrivianTechnologies/tria-sdk), the deployable public TRIA kernel. No installable client implementation is provided here yet.
-
-## Overview
-
-This repository will house the official **Python and JavaScript SDKs** for the Syzygy Rosetta governance API.
-
-The SDK will make it straightforward for developers to integrate Rosetta's `POST /evaluate` governance layer into any application stack without writing raw HTTP requests.
-
----
-
-## Planned SDK Features
-
-### Python SDK
-
-```python
-from rosetta import RosettaClient
-
-client = RosettaClient(base_url="http://localhost:8000")
-
-result = client.evaluate(
-    input="Your prompt or AI output here",
-    context={
-        "environment": "production",
-        "industry": "finance"
-    }
-)
-
-print(result.decision)      # "allow" | "rewrite" | "escalate"
-print(result.risk_score)    # float 0.0 – 1.0
-print(result.confidence)    # float 0.0 – 1.0
-print(result.violations)    # list of policy violations
-print(result.rewrite)       # rewritten output or None
-```
-
-### JavaScript / TypeScript SDK
-
-```typescript
-import { RosettaClient } from '@trivian/rosetta-sdk';
-
-const client = new RosettaClient({ baseUrl: 'http://localhost:8000' });
-
-const result = await client.evaluate({
-  input: 'Your prompt or AI output here',
-  context: {
-    environment: 'production',
-    industry: 'healthcare'
-  }
-});
-
-console.log(result.decision);    // "allow" | "rewrite" | "escalate"
-console.log(result.risk_score);  // number 0.0 – 1.0
-```
-
----
-
-## Current Status
-
-The SDK is planned for **Phase 4 — Scaling** of the Rosetta roadmap.
-
-The planned client targets a `POST /evaluate` interface; current implementation behavior and API documentation remain pending verification. The current API implementation documentation destination is pending verification. The separate [Syzygy Rosetta Protocol](https://github.com/TrivianTechnologies/syzygy-rosetta-protocol) repository is the canonical public protocol/specification, not a substitute for implementation-specific API documentation.
-
----
-
-## Planned API integration example
-
-The following illustrates the intended HTTP interface. It is not evidence of an available or verified current deployment:
+Install the exact committed TRIA dependency and this source in an isolated environment:
 
 ```bash
-curl -X POST http://localhost:8000/evaluate \
-  -H "Content-Type: application/json" \
-  -d '{
-    "input": "Your prompt here",
-    "context": {
-      "environment": "production",
-      "industry": "general"
-    }
-  }'
+python -m pip install -e ".[governed]" pytest
+python -m pytest -q tests
 ```
 
----
+The exact source fingerprint in `src/open_rosetta/_tria_source_pin.json` must match;
+package version alone is insufficient. The pin is TRIA commit
+`69a0b3739457e86f9e481cdfe4fa41e9810461cc` ([draft PR #61](https://github.com/TrivianTechnologies/tria-sdk/pull/61)); required review and CI remain pending.
 
-## Stay Updated
+Correction application and claim-dependent release are disabled by default pending
+G01–G03 conformance and required review. Tests override the private gate only in
+scoped offline fixtures; there is no supported runtime opt-in. Assessment and
+claim-independent local governance remain available.
 
-Watch this repository to be notified when the SDK development begins.
+`assessment.assess` retains required-check diagnostics, implements false-over-unknown
+precedence and never grants permission. Observations bind subject, scope, principals,
+action/input identity, evidence version and local state.
 
-Follow [@TrivianOS](https://x.com/TrivianOS) for product updates.
+`tria_adapter.TriaBinding` fixes one relationship and policy. Explicit `claim_refs`
+enable canonical claim-context checking; empty refs retain the host precondition of
+claim-independent behavior. Fresh ACT/consent/READ, final handoff, inclusive deadline
+and explicit effect uncertainty remain mandatory. Hosts declare dependencies and
+authenticate evidence; arbitrary executor semantics are not automatically inferred.
 
----
+`correction.apply_correction` delegates graph-validated atomic correction to the
+pinned kernel. A receipt does not prove uptake. The local Sandbox supplies paired
+U01–U11 next-consumption/consequence controls. See [CANDIDATE.txt](CANDIDATE.txt).
+Historical failure witnesses under `evidence/` belong to their original kernel;
+they are separate from current conformance. F033 remains UNRESOLVED and excluded.
 
-## Related Repositories
+## Provenance and license
 
-| Repository | Role |
-|---|---|
-| [syzygy-rosetta-originbase](https://github.com/TrivianTechnologies/syzygy-rosetta-originbase) | Historical origin codebase; not the current implementation |
-| API implementation documentation | Current destination pending verification |
-| [syzygy-rosetta-sandbox](https://github.com/TrivianTechnologies/syzygy-rosetta-sandbox) | Testing and simulation |
+Originator: Sarasha Elion. Research lineage: Trivian Institute. Engineering home:
+Trivian Technologies. Preserve contributor notices and historical grants.
+Rights-to-license authority does not imply copyright assignment. Software/tests:
+MPL-2.0; applicable original documentation: CC BY-SA 4.0. See [LICENSE.md](LICENSE.md)
+and [NOTICE.md](NOTICE.md).
 
----
-
-## Organization
-
-Part of the [Trivian Technologies](https://github.com/TrivianTechnologies) organization.
-
-**Website:** [triviantech.com](https://triviantech.com) | **X:** [@TrivianOS](https://x.com/TrivianOS) | **LinkedIn:** [Trivian Technologies](https://www.linkedin.com/company/awakening-the-architect)
-
-## Research lineage and current home
-
-Originator: Sarasha Elion. This work draws on architecture originated and cultivated through Trivian Institute. Trivian Technologies is the current engineering and commercial-development home. Repository stewardship does not establish ownership of all underlying IP; the intended founder IP assignment is pending, and contributor and third-party rights remain applicable.
-
-For technical and ecosystem inquiries: node@triviantech.com. No repository-level license file is currently specified; this description does not grant additional rights.
+The earlier planned HTTP description remains in `syzygy-rosetta-sdk.md` as historical
+planning, not an adopted API. The public Protocol repository remains canonical for
+architecture and normative commitments:
+https://github.com/TrivianTechnologies/syzygy-rosetta-protocol

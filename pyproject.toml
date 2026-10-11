@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling==1.32.4"]
+build-backend = "hatchling.build"
+
+[project]
+name = "open-rosetta-sdk"
+version = "0.0.0.dev0"
+license = "MPL-2.0"
+license-files = ["LICENSE-MPL-2.0.txt", "NOTICE.md"]
+description = "Open Rosetta local interoperability candidate."
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+governed = ["tria-sdk @ git+https://github.com/TrivianTechnologies/tria-sdk.git@69a0b3739457e86f9e481cdfe4fa41e9810461cc"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/open_rosetta"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/LICENSE.md", "/LICENSE-MPL-2.0.txt", "/LICENSE-DOCUMENTATION.md", "/NOTICE.md", "/README.md", "/CANDIDATE.txt", "/evidence", "/pyproject.toml", "/src/open_rosetta", "/tests"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -117,4 +117,4 @@ Part of the [Trivian Technologies](https://github.com/TrivianTechnologies) organ
 
 Originator: Sarasha Elion. This work draws on architecture originated and cultivated through Trivian Institute. Trivian Technologies is the current engineering and commercial-development home. Repository stewardship does not establish ownership of all underlying IP; the intended founder IP assignment is pending, and contributor and third-party rights remain applicable.
 
-For technical and ecosystem inquiries: node@triviantech.com. No repository-level license file is currently specified; this description does not grant additional rights.
+For technical and ecosystem inquiries: node@triviantech.com. Current software/test licensing and applicable original-documentation grants are recorded in [LICENSE.md](LICENSE.md); existing attribution and historical grants are preserved.
