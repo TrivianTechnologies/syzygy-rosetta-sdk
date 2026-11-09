@@ -49,3 +49,12 @@ CC BY-SA 4.0. Preserve contributor notices and historical grants. See
 The earlier planned HTTP description in `syzygy-rosetta-sdk.md` is historical
 planning, not an adopted SDK API. The Protocol remains canonical for architecture
 and normative commitments.
+
+## Rosetta Beacon candidate
+
+The optional [Rosetta Beacon](docs/BEACON_RELEASE.md) exposes public discovery and
+three credentialed, synthetic assessment scenarios using the existing assessment
+engine. It never authorizes execution. The landing page, manifest, OpenAPI and
+optional MCP stdio adapter are implemented and locally tested. Public deployment,
+hosted verification and independent agent adoption remain unestablished.
+See [reproduction and deployment gates](deploy/beacon/README.md).

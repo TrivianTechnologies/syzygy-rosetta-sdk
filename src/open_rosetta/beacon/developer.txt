@@ -1,0 +1,37 @@
+ROSETTA BEACON 0.1 — EXPERIMENTAL ASSESSMENT ONLY
+
+1. GET /.well-known/rosetta-beacon.json without credentials.
+2. GET /openapi.json and inspect assessSyntheticScenario.
+3. Obtain an operator-issued, expiring bearer grant for beacon-synthetic-assessment/1.
+4. POST /v1/assess with Authorization: Bearer <secret>, Content-Type: application/json,
+   and {"scenario":"revoked","consent":true}.
+5. Expect verdict FAILS, authorizes_execution false, synthetic true.
+   The current scenario returns SURVIVES; unknown returns UNRESOLVED.
+
+Only these three scenario names and an exact boolean consent are accepted.
+Do not submit personal data, prompts, URLs, subject identities or proposed actions.
+The observations are fixed synthetic host assertions, not independently verified facts.
+Consent here covers this synthetic demonstration only, not real-world execution.
+SURVIVES is not a permission token. TRIA execution is not exposed.
+
+Errors: 400 malformed/duplicate JSON or query; 401 missing credential; 403 invalid,
+expired or unscoped credential, withheld consent, Host/Origin mismatch; 413 >2048-byte
+body; 415 non-JSON; 422 invalid fields; 429 rate/quota; 503 unavailable dependencies.
+Do not retry automatically on denial or quota exhaustion. Max 10 requests per
+credential per minute, 120 total HTTP requests per minute, 10000 assessments per
+release ledger. Quota persists across process restarts and must not be reset to
+bypass its ceiling. Configuration changes require restart; removing a grant revokes it.
+
+MCP: optional local stdio adapter using the official Python MCP SDK. Configure
+ROSETTA_BEACON_URL (exact approved origin) and ROSETTA_BEACON_TOKEN in your client
+secret environment, then launch python -m open_rosetta.beacon.mcp.
+Tools: discover_beacon and assess_synthetic_scenario. Both use the same HTTP host;
+no alternate assessment or authorization path exists. No remote MCP endpoint or
+MCP registry listing is claimed. Compatibility is limited to the tested SDK pin.
+
+No model calls, paid APIs, autonomous tools, private memory, or admin routes.
+Application telemetry: bounded aggregate counters and opaque token hashes only;
+no raw tokens, IPs or submitted bodies. The hosting operator must also disable
+access/query/header/body logs and enforce TLS, request size/time and connection limits.
+Discovery documents are intended for indexing, but indexing/adoption is unverified.
+Credential provisioning is manual; no per-invocation introduction or session is needed.

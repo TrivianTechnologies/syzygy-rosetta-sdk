@@ -1,0 +1,51 @@
+{
+  "scope": "authorized synthetic localhost interoperability; not independent adoption or LLM-agent validation",
+  "separate_processes": true,
+  "distinct_credentials": true,
+  "clients": [
+    {
+      "client": "stdlib-urllib",
+      "discovery": "manifest + OpenAPI operationId",
+      "results": [
+        {
+          "scenario": "current",
+          "verdict": "SURVIVES",
+          "authorizes_execution": false
+        },
+        {
+          "scenario": "revoked",
+          "verdict": "FAILS",
+          "authorizes_execution": false
+        },
+        {
+          "scenario": "unknown",
+          "verdict": "UNRESOLVED",
+          "authorizes_execution": false
+        }
+      ]
+    },
+    {
+      "client": "official-python-mcp",
+      "protocol": "2025-11-25",
+      "discovery": "MCP tools/list + discover_beacon",
+      "results": [
+        {
+          "scenario": "current",
+          "verdict": "SURVIVES",
+          "authorizes_execution": false
+        },
+        {
+          "scenario": "revoked",
+          "verdict": "FAILS",
+          "authorizes_execution": false
+        },
+        {
+          "scenario": "unknown",
+          "verdict": "UNRESOLVED",
+          "authorizes_execution": false
+        }
+      ],
+      "consent_denial": true
+    }
+  ]
+}

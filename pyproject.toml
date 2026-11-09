@@ -12,6 +12,8 @@ requires-python = ">=3.11"
 dependencies = []
 
 [project.optional-dependencies]
+beacon = ["fastapi==0.162.2", "uvicorn==0.54.0"]
+beacon-client = ["mcp==1.30.0", "httpx==0.28.1"]
 governed = ["tria-sdk @ git+https://github.com/TrivianTechnologies/tria-sdk.git@03b8ef764a60c5ba01031ddaf363028e5c49f7d9"]
 
 [tool.hatch.metadata]
@@ -21,7 +23,7 @@ allow-direct-references = true
 packages = ["src/open_rosetta"]
 
 [tool.hatch.build.targets.sdist]
-include = ["/LICENSE.md", "/LICENSE-MPL-2.0.txt", "/LICENSE-DOCUMENTATION.md", "/NOTICE.md", "/README.md", "/CANDIDATE.txt", "/evidence", "/pyproject.toml", "/src/open_rosetta", "/tests", "/examples", "/docs"]
+include = ["/LICENSE.md", "/LICENSE-MPL-2.0.txt", "/LICENSE-DOCUMENTATION.md", "/NOTICE.md", "/README.md", "/CANDIDATE.txt", "/evidence", "/pyproject.toml", "/src/open_rosetta", "/tests", "/examples", "/docs", "/beacon_tests", "/deploy"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

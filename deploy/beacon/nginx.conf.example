@@ -1,0 +1,25 @@
+# Merge into the existing TLS reverse proxy after deployment approval.
+# http context; all clients share a global ingress ceiling, no IP telemetry.
+limit_req_zone $server_name zone=beacon_global:1m rate=2r/s;
+limit_conn_zone $server_name zone=beacon_connections:1m;
+server {
+    listen 443 ssl;
+    server_name REPLACE_WITH_APPROVED_HOST;
+    # Configure the existing certificate/key here; never commit secrets.
+    access_log off;
+    error_log /dev/null crit;
+    client_max_body_size 2k;
+    client_body_timeout 5s;
+    client_header_timeout 5s;
+    keepalive_timeout 5s;
+    location / {
+        limit_req zone=beacon_global burst=10 nodelay;
+        limit_conn beacon_connections 20;
+        proxy_pass http://127.0.0.1:8766;
+        proxy_set_header Host $host;
+        proxy_connect_timeout 2s;
+        proxy_read_timeout 10s;
+        proxy_send_timeout 5s;
+        proxy_request_buffering on;
+    }
+}
