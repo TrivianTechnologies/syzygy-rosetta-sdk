@@ -12,6 +12,7 @@ requires-python = ">=3.11"
 dependencies = []
 
 [project.optional-dependencies]
+freshness = ["syzygy-rosetta[freshness] @ git+https://github.com/TrivianTechnologies/syzygy-rosetta-protocol.git@e7be142719ba86e6f420c29df6b80d6273e6accc"]
 governed = ["tria-sdk @ git+https://github.com/TrivianTechnologies/tria-sdk.git@03b8ef764a60c5ba01031ddaf363028e5c49f7d9"]
 
 [tool.hatch.metadata]

@@ -49,3 +49,5 @@ CC BY-SA 4.0. Preserve contributor notices and historical grants. See
 The earlier planned HTTP description in `syzygy-rosetta-sdk.md` is historical
 planning, not an adopted SDK API. The Protocol remains canonical for architecture
 and normative commitments.
+
+An optional [freshness observation](docs/FRESHNESS.md) can accompany assessment results.
